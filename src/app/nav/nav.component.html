@@ -1,0 +1,11 @@
+<button mat-button [matMenuTriggerFor]="menu">
+  <mat-icon>Menü</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <ng-container *ngFor="let mod of modules">
+    <button mat-menu-item routerLink="/data/{{mod.id}}">
+      {{mod.title}}
+    </button>
+  </ng-container>
+</mat-menu>
+

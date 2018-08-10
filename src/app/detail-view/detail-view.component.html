@@ -1,0 +1,14 @@
+<ng-container *ngFor="let block of fields">
+<div  *ngIf="record">
+  <h4>{{block.title}}</h4>
+
+  <div style="overflow: hidden;">
+  <ng-container *ngFor="let field of block.fields">
+    <div class="col-md-6 col-xs-12" style="line-height:200%;">
+      <div class="col-xs-6" style="background-color:#f7f7f7; border-bottom:1px solid #ccc;"><strong>{{field.label}}</strong></div>
+      <div class="col-xs-6" style=" border-bottom:1px solid #ccc;">{{record.get(field.name)}}&nbsp;</div>
+    </div>
+  </ng-container>
+  </div>
+</div>
+</ng-container>

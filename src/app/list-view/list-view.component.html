@@ -1,0 +1,32 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th *ngFor="let field of headers">{{field.fieldlabel}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let record of entries">
+      <tr attr.data-id="{{record.getId()}}"
+          attr.data-module="{{record.getModuleName()}}"
+          routerLink="/data/{{record.getModuleName()}}/{{record.getId()}}"
+      >
+        <ng-container *ngFor="let field of headers">
+          <td>{{record.get(field.fieldname)}}</td>
+        </ng-container>
+
+      </tr>
+
+    </ng-container>
+  </tbody>
+</table>
+<!--<ul class="module-nav" style="display:flex;flex-direction:row;margin:0;padding:0;">-->
+  <!--<li-->
+          <!--*ngFor="let mod of modules"-->
+          <!--[class.selected]="mod === selectedModule"-->
+          <!--(click)="onSelect(mod)"-->
+  <!--&gt;-->
+    <!--<a routerLink="/data/{{mod.id}}">-->
+      <!--{{mod.title}}-->
+    <!--</a>-->
+  <!--</li>-->
+<!--</ul>-->
