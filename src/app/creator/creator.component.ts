@@ -25,7 +25,15 @@ export class CreatorComponent implements OnInit {
           .module('Contacts')
           .createRecord('Contacts', data)
           .subscribe(record => {
+              let data = {
+                  'lastname': 'Lastname API UPDATE ' + date
+              };
+
               this.record = record;
+              
+              record.set(data).subscribe(record => {
+                  this.record = record;
+              })
           });
   }
 

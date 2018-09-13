@@ -46,6 +46,28 @@ export class Record {
         return entities.decodeHTML(this.data[field]);
     }
 
+    set(data): Observable<Record> {
+        return new Observable<Record>(observer  => {
+            let parameters = {
+                'fields': {}
+            };
+
+            for (let key in data) {
+                if(data.hasOwnProperty(key)) {
+                    parameters.fields[key] = data[key];
+                }
+            }
+
+            this.apiService.post('records/set/' + this.moduleName + '/' + this.crmid, parameters).subscribe((result) => {
+
+                this.load().subscribe(result => {
+                    observer.next(this);
+                });
+
+            });
+        });
+    }
+
     getId(): number {
         console.log(this.data);
         return this.data['crmid'];
