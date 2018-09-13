@@ -10,6 +10,7 @@ import { NavComponent } from './nav/nav.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule, MatIconModule, MatMenuModule, MatPaginatorModule, MatTableDataSource} from "@angular/material";
 import { DetailViewComponent } from './detail-view/detail-view.component';
+import { CreatorComponent } from './creator/creator.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
     ModulesComponent,
     ListViewComponent,
     NavComponent,
-    DetailViewComponent
+    DetailViewComponent,
+    CreatorComponent
   ],
   imports: [
     BrowserModule,

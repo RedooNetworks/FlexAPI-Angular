@@ -18,6 +18,31 @@ export class Module {
         return this.id;
     }
 
+    createRecord(moduleName, data): Observable<Record> {
+        return new Observable<Record>(observer  => {
+
+            let parameters = {
+                'fields': {}
+            };
+
+            for (let key in data) {
+                if(data.hasOwnProperty(key)) {
+                    parameters.fields[key] = data[key];
+                }
+            }
+
+            this.apiService.post('records/create/' + moduleName, parameters).subscribe((result) => {
+                let record = new Record(this.apiService);
+                record.setModuleName(this.getModuleName());
+                record.setCrmID(result['id']);
+                record.load().subscribe(result => {
+                    observer.next(record)
+                });
+            });
+
+        });
+    },
+
     getRecord(crmId: number): Observable<Record> {
         return new Observable<Record>(observer  => {
             let record = new Record(this.apiService);

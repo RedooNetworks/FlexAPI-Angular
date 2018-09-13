@@ -2,6 +2,10 @@
   <mat-icon>Menü</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/creator/">
+    Create
+  </button>
+
   <ng-container *ngFor="let mod of modules">
     <button mat-menu-item routerLink="/data/{{mod.id}}">
       {{mod.title}}

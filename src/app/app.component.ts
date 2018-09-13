@@ -13,7 +13,7 @@ export class AppComponent {
     constructor(private apiService: ApiService){
 //        this.apiService.setAuth(CONFIG.crmUrl, CONFIG.crmUsername, CONFIG.crmPassword);
 
-        this.apiService.setAuth(CONFIG.crmUrl, 'b451fd13456b7c50b4233d14ae17c1d715a8d24441c3d8f1f50afe140db8f513');
+        this.apiService.setAuth(CONFIG.crmUrl, 'fdad255350e2e8b1fa11823864fb56aa9856b85ca8792abe52445d1153eacd26');
         this.apiService.setPageLimit(15);
 
     }
